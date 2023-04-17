@@ -6,7 +6,7 @@
 /*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/17 19:00:24 by tatianasofi      ###   ########.fr       */
+/*   Updated: 2023/04/17 19:12:42 by tatianasofi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void push_swap(t_data *data)
         three_five(data);
         return;
     }
-
-    quick_sort(data, len);
+    else
+        quick_sort(data, len);
 
 }
