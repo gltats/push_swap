@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gltats <gltats@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/16 19:21:01 by gltats           ###   ########.fr       */
+/*   Updated: 2023/04/17 19:00:24 by tatianasofi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Checks if the given list is ordered according to the specified ordering (ascending or descending)
 int	isorded(t_list *list, int i)
 {
 	if (list && list->next)
@@ -24,6 +25,7 @@ int	isorded(t_list *list, int i)
 	return (1);
 }
 
+// Returns the length of the given list
 int	list_len(t_list *list)
 {
 	if (list)
@@ -31,6 +33,7 @@ int	list_len(t_list *list)
 	return (0);
 }
 
+// Checks if the elements in data->a and data->b are correctly positioned relative to each other
 int	ispositioned(t_data *data)
 {
 	int	aux;
@@ -45,88 +48,77 @@ int	ispositioned(t_data *data)
 		|| (data->b->numb == 4 && (data->a->numb == 1 && aux == 3)));
 }
 
+
+// Sorts a list with 2 elements
+void sort_two(t_data *data)
+{
+    while (!isorded(data->a, 0))
+    {
+        swap(&(data->a), "sa\n");
+    }
+}
+
+// Sorts a list with 3 to 5 elements
 void	three_five(t_data *data)
 {
-	while (!isorded(data->a, 0))
-		if (data->a->numb < data->a->next->numb
-			&& data->a->numb > data->a->next->next->numb)
-			reverse_rotate(&(data->a), "rra\n");
-	else if (data->a->numb > data->a->next->numb
-		&& data->a->numb > data->a->next->next->numb)
-		rotate(&(data->a), "ra\n");
-	else
-		swap(&(data->a), "sa\n");
-	while (data->b)
-		if (ispositioned(data))
-			push(&(data->b), &(data->a), "pa\n");
-	else
-		if ((data->a->numb == ((data->b->numb + 3) % 5) + 1))
-			rotate(&(data->a), "ra\n");
-	else
-		reverse_rotate(&(data->a), "rra\n");
-	while (!isorded(data->a, 0))
-		if (data->a->numb > 3)
-			rotate(&(data->a), "ra\n");
-	else
-		reverse_rotate(&(data->a), "rra\n");
+    int len = list_len(data->a);
+
+	if (len == 3)
+		sort_three(data);
+	else if (len == 4)
+		sort_four(data);
+	else if (len == 5)
+		sort_five(data);
+        return;
 }
 
-static int max_value(t_list *list)
-{
-    int max_val;
+// // Returns the maximum value in the given list
+// static int max_value(t_list *list)
+// {
+//     int max_val;
 
-    max_val = list->numb;
-    while (list)
-    {
-        if (list->numb > max_val)
-        {
-            max_val = list->numb;
-        }
-        list = list->next;
-    }
-    return max_val;
-}
+//     max_val = list->numb;
+//     while (list)
+//     {
+//         if (list->numb > max_val)
+//         {
+//             max_val = list->numb;
+//         }
+//         list = list->next;
+//     }
+//     return max_val;
+// }
 
-static int numb_bits(int n)
-{
-    int bits;
+// // Returns the number of bits required to represent the given integer in binary
+// static int numb_bits(int n)
+// {
+//     int bits;
 
-    bits = 0;
-    while (n)
-    {
-        n >>= 1;
-        bits++;
-    }
-    return bits;
-}
+//     bits = 0;
+//     while (n)
+//     {
+//         n >>= 1;
+//         bits++;
+//     }
+//     return bits;
+// }
 
+// Main push_swap function that sorts the given list using the push_swap algorithm
 void push_swap(t_data *data)
 {
-    // int i;
-    int numb_iterations;
-    int listlen;
+    int len = list_len(data->a);
 
-    numb_iterations = numb_bits(max_value(data->a));
-
-    if (list_len(data->a) <= 5 && !isorded(data->a, 0))
+    if (len == 2)
     {
-        while (list_len(data->a) > 3)
-            push(&(data->a), &(data->b), "pb\n");
+        sort_two(data);
+        return;
     }
-    if (list_len(data->a) == 3)
+    else if (len <= 5)
+    {
         three_five(data);
-
-    while (--numb_iterations >= 0 && !isorded(data->a, 0))
-    {
-        listlen = list_len(data->a);
-        while (listlen-- > 0)
-        {
-            if (data->a->bin[numb_iterations] == '0')
-                push(&(data->a), &(data->b), "pb\n");
-            else
-                rotate(&(data->a), "ra\n");
-        }
-        while (data->b)
-            push(&(data->b), &(data->a), "pa\n");
+        return;
     }
+
+    quick_sort(data, len);
+
 }

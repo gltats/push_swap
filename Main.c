@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+// Returns the position of the given element in the sorted list
 int	numeration(t_list *list, t_list *list2)
 {
 	if (list2 && list->numb > list2->numb)
@@ -21,6 +22,7 @@ int	numeration(t_list *list, t_list *list2)
 	return (0);
 }
 
+// Renumber the elements of the given list based on their positions in the sorted list
 t_list	*renumb(t_list *list, t_list *list2)
 {
 	t_list	*a;
@@ -34,6 +36,7 @@ t_list	*renumb(t_list *list, t_list *list2)
 	return (NULL);
 }
 
+// Converts the given array of strings to a list of integers
 t_list	*get_list(char **aux)
 {
 	t_list	*a;
@@ -47,6 +50,7 @@ t_list	*get_list(char **aux)
 	return (NULL);
 }
 
+// Frees the memory allocated to the data structures used in the program
 void	clean(t_data *data, char **aux, char *str, t_list *temp)
 {
 	int		i;
@@ -62,6 +66,7 @@ void	clean(t_data *data, char **aux, char *str, t_list *temp)
 	free(data);
 }
 
+// Main function that initializes the data structures and calls the push_swap function
 int	main(int argc, char **argv)
 {
 	char	*str;
@@ -81,4 +86,7 @@ int	main(int argc, char **argv)
 		push_swap(data);
 		clean(data, aux, str, temp);
 	}
+	else
+		ft_putstr("Invalid number of arguments");
+	return(0);
 }

@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+// Frees the memory allocated to the elements of the given list
 void	clean_list(t_list *list)
 {
 	t_list	*listaux;
@@ -24,6 +25,7 @@ void	clean_list(t_list *list)
 	}
 }
 
+// Converts an integer to its binary representation
 char	*itobin(unsigned int numb, char *aux, int neg)
 {
 	int	index;
@@ -40,6 +42,7 @@ char	*itobin(unsigned int numb, char *aux, int neg)
 	return (aux);
 }
 
+// Creates a new node with the given number
 t_list	*new_node(int numb)
 {
 	t_list	*a;
@@ -52,6 +55,7 @@ t_list	*new_node(int numb)
 	return (a);
 }
 
+// Concatenates the command line arguments into a single string
 char	*args_to_str(char **argv)
 {
 	char	*str;
@@ -73,6 +77,7 @@ char	*args_to_str(char **argv)
 	return (str);
 }
 
+// Converts a string to a long integer
 long int	ft_atol(char *str)
 {
 	long int	a;

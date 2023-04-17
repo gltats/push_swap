@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+// Rotates the elements of the given list by one position to the left
 void	rotate(t_list **list, char *str)
 {
 	t_list	*aux;
@@ -29,6 +30,7 @@ void	rotate(t_list **list, char *str)
 	}
 }
 
+// Rotates the elements of the given list by one position to the right
 void	reverse_rotate(t_list **list, char *str)
 {
 	t_list	*aux;
@@ -46,6 +48,7 @@ void	reverse_rotate(t_list **list, char *str)
 	}
 }
 
+// Swaps the first two elements of the given list
 void	swap(t_list **list, char *str)
 {
 	t_list	*aux;
@@ -60,6 +63,7 @@ void	swap(t_list **list, char *str)
 	}
 }
 
+// Moves the first element of the source list to the destination list
 void	push(t_list **src, t_list **dst, char *str)
 {
 	t_list	*aux;
@@ -73,3 +77,4 @@ void	push(t_list **src, t_list **dst, char *str)
 		write(1, str, ft_strlen(str));
 	}
 }
+ 

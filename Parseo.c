@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+// Checks if there are any invalid characters in the input string
 int	char_in_str(char *str)
 {
 	int	i;
@@ -31,6 +32,7 @@ int	char_in_str(char *str)
 	return (0);
 }
 
+// Checks if any number in the input array exceeds the range of a 32-bit integer
 int	int_max(char **a)
 {
 	int	i;
@@ -45,6 +47,7 @@ int	int_max(char **a)
 	return (0);
 }
 
+// Checks if there are any duplicate numbers in the input array
 int	isdup(char **a)
 {
 	int	i;
@@ -62,11 +65,12 @@ int	isdup(char **a)
 	return (0);
 }
 
+// Checks if the input string contains any invalid characters, numbers out of range or duplicates
 void	parseo(char *str, char **a)
-{
+{	
 	if (char_in_str(str) || int_max(a) || isdup(a))
 	{
-		ft_putstr("Error\n");
+		ft_putstr("Parsing error\n");
 		exit(0);
 	}
 }
