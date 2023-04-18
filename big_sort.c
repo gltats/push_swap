@@ -3,90 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
+/*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 18:28:58 by tatianasofi       #+#    #+#             */
-/*   Updated: 2023/04/17 19:10:35 by tatianasofi      ###   ########.fr       */
+/*   Created: 2023/04/18 11:36:45 by gltats            #+#    #+#             */
+/*   Updated: 2023/04/18 11:42:27 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int median_of_three(int a, int b, int c)
+// Returns the maximum value in the given list
+static int max_value(t_list *list)
 {
-    if ((a <= b && b <= c) || (c <= b && b <= a))
-        return b;
-    if ((b <= a && a <= c) || (c <= a && a <= b))
-        return a;
-    return c;
-}
+    int max_val;
 
-int get_median_pivot(t_data *data, int len)
-{
-    int first = data->a->numb;
-    int middle;
-    int last;
-    t_list *middle_node;
-    t_list *last_node;
-    int i;
-
-    middle_node = data->a;
-    for (i = 0; i < len / 2; i++)
-        middle_node = middle_node->next;
-    middle = middle_node->numb;
-
-    last_node = middle_node;
-    while (last_node->next)
-        last_node = last_node->next;
-    last = last_node->numb;
-
-    return median_of_three(first, middle, last);
-}
-
-void partition(t_data *data, int pivot, int len, int *left_len, int *right_len)
-{
-    int processed = 0;
-    int left_count = 0;
-
-    *left_len = 0;
-    *right_len = 0;
-
-    while (processed < len)
+    max_val = list->numb;
+    while (list)
     {
-        if (data->a->numb <= pivot)
+        if (list->numb > max_val)
         {
-            push(&(data->a), &(data->b), "pb\n");
-            left_count++;
+            max_val = list->numb;
         }
-        else
-        {
-            rotate(&(data->a), "ra\n");
-            (*right_len)++;
-        }
-        processed++;
+        list = list->next;
     }
-
-    while (left_count--)
-    {
-        push(&(data->b), &(data->a), "pa\n");
-        (*left_len)++;
-    }
+    return max_val;
 }
 
-void quick_sort(t_data *data, int len)
+// Returns the number of bits required to represent the given integer in binary
+static int numb_bits(int n)
 {
-    int pivot;
-    int left_len;
-    int right_len;
+    int bits;
 
-    if (len <= 1)
+    bits = 0;
+    while (n)
     {
-        return;
+        n >>= 1;
+        bits++;
     }
+    return bits;
+}
 
-    pivot = get_median_pivot(data, len);
-    partition(data, pivot, len, &left_len, &right_len);
+//calculates the number of iterations needed based on the maximum 
+// value in the list and loops through all the bits of the maximum value. 
+// In each iteration, it checks the current bit of the element at the 
+// head of stack A and pushes it to stack B if the bit is 0 or rotates 
+// stack A if the bit is 1. After all elements are checked, it pushes
+//  all elements back from stack B to stack A. 
+ 
+//  The process continues until the list is sorted or 
+//  all the bits have been checked.
+void radix_sort(t_data *data, int len)
+{
+    int max_val = max_value(data->a);
+    int numb_iterations = numb_bits(max_val);
+    int bit_position;
+    int listlen;
 
-    quick_sort(data, left_len);
-    quick_sort(data, right_len);
+    while (--numb_iterations >= 0 && !isorded(data->a, 0))
+    {
+        bit_position = 1 << numb_iterations;
+        listlen = len;
+        while (listlen-- > 0)
+        {
+            if ((data->a->numb & bit_position) == 0)
+                push(&(data->a), &(data->b), "pb\n");
+            else
+                rotate(&(data->a), "ra\n");
+        }
+
+        while (data->b)
+            push(&(data->b), &(data->a), "pa\n");
+    }
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
+/*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/17 19:12:42 by tatianasofi      ###   ########.fr       */
+/*   Updated: 2023/04/18 11:42:59 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,37 +72,6 @@ void	three_five(t_data *data)
         return;
 }
 
-// // Returns the maximum value in the given list
-// static int max_value(t_list *list)
-// {
-//     int max_val;
-
-//     max_val = list->numb;
-//     while (list)
-//     {
-//         if (list->numb > max_val)
-//         {
-//             max_val = list->numb;
-//         }
-//         list = list->next;
-//     }
-//     return max_val;
-// }
-
-// // Returns the number of bits required to represent the given integer in binary
-// static int numb_bits(int n)
-// {
-//     int bits;
-
-//     bits = 0;
-//     while (n)
-//     {
-//         n >>= 1;
-//         bits++;
-//     }
-//     return bits;
-// }
-
 // Main push_swap function that sorts the given list using the push_swap algorithm
 void push_swap(t_data *data)
 {
@@ -119,6 +88,6 @@ void push_swap(t_data *data)
         return;
     }
     else
-        quick_sort(data, len);
+        radix_sort(data, len);
 
 }

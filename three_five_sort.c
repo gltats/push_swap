@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   three_five_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
+/*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 18:28:50 by tatianasofi       #+#    #+#             */
-/*   Updated: 2023/04/17 18:35:14 by tatianasofi      ###   ########.fr       */
+/*   Updated: 2023/04/18 11:43:05 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
