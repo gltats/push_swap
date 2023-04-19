@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Parseo.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/18 11:42:55 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:31:52 by tatianasofi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,22 @@ int	isdup(char **a)
 // Checks if the input string contains any invalid characters, numbers out of range or duplicates
 void	parseo(char *str, char **a)
 {	
-	if (char_in_str(str) || int_max(a) || isdup(a))
+	if (char_in_str(str))
 	{
-		ft_putstr("Parsing error\n");
+		ft_putstr("Parsing error!\n");
+		ft_putstr("There is a char on your args!\n");
+		exit(0);
+	}
+	if (int_max(a))
+	{
+		ft_putstr("Parsing error!\n");
+		ft_putstr("Your args needs to be between 2147483647 and -2147483648!\n");
+		exit(0);
+	}
+	if (isdup(a))
+	{
+		ft_putstr("Parsing error!\n");
+		ft_putstr("There is a duplicated int!\n");
 		exit(0);
 	}
 }

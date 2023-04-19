@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/18 11:42:59 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:20:55 by tatianasofi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,23 @@ int	ispositioned(t_data *data)
 // Sorts a list with 2 elements
 void sort_two(t_data *data)
 {
-    while (!isorded(data->a, 0))
+    while (isorded(data->a, 0))
     {
-        swap(&(data->a), "sa\n");
+    	ft_putstr("The list is sorted already!\n");
+        return;
     }
+	swap(&(data->a), "sa\n");
 }
 
 // Sorts a list with 3 to 5 elements
 void	three_five(t_data *data)
 {
     int len = list_len(data->a);
-
+	 if (isorded(data->a, 0))
+    {
+		ft_putstr("The list is sorted already!\n");
+        return;
+    }
 	if (len == 3)
 		sort_three(data);
 	else if (len == 4)

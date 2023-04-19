@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:36:45 by gltats            #+#    #+#             */
-/*   Updated: 2023/04/18 11:42:27 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:21:57 by tatianasofi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,11 @@ void radix_sort(t_data *data, int len)
     int numb_iterations = numb_bits(max_val);
     int bit_position;
     int listlen;
-
+    while (isorded(data->a, 0))
+    {
+    	ft_putstr("The list is sorted already!\n");
+        return;
+    }
     while (--numb_iterations >= 0 && !isorded(data->a, 0))
     {
         bit_position = 1 << numb_iterations;
