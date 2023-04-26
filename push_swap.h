@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/18 11:42:15 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/04/26 19:20:45 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void  sort_three(t_data *data);
 void sort_four(t_data *data);
 void sort_five(t_data *data);
 
-void radix_sort(t_data *data, int len);
+void radix_sort(t_data *data);
 
 t_list		*new_node(int numb);
 
