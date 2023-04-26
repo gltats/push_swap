@@ -40,7 +40,7 @@ OBJS = $(SRC:.c=.o)
 LIB = ./libft/libft.a
 HEADERS = Push_swap.h
 NAME = push_swap
-FLAGS = -Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 
 all: header $(NAME)
 
@@ -76,3 +76,10 @@ fclean: clean
 	@make fclean -C ./libft
 	
 re: fclean all
+
+#valgrind:
+#	valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q ./push_swap 6 5 1 60 76 3 7589 234 1235 46
+
+norm:
+	@echo "$(CYAN)\nChecking norm for Pipex...$(RESET)\n"
+	@norminette $(SRC) includes/ && echo "$(EMOJI_HAPPY)$(GREEN)Norm check passed!$(RESET)$(EMOJI_CELEBRATE)" || echo "$(EMOJI_SAD)$(RED)Norm check failed!$(RESET)$(EMOJI_SAD)"
