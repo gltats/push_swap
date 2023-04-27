@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: tgomes-l <tgomes-l@student.42wolfsburg>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/26 19:20:33 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/04/27 12:25:21 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Checks if the given list is ordered according to the specified ordering (ascending or descending)
+// Checks if the given list is ordered according to 
+//the specified ordering (ascending or descending)
 int	isorded(t_list *list, int i)
 {
 	if (list && list->next)
@@ -33,7 +34,8 @@ int	list_len(t_list *list)
 	return (0);
 }
 
-// Checks if the elements in data->a and data->b are correctly positioned relative to each other
+// Checks if the elements in data->a and data->b are 
+//correctly positioned relative to each other
 int	ispositioned(t_data *data)
 {
 	int	aux;
@@ -48,52 +50,43 @@ int	ispositioned(t_data *data)
 		|| (data->b->numb == 4 && (data->a->numb == 1 && aux == 3)));
 }
 
-
-// Sorts a list with 2 elements
-void sort_two(t_data *data)
-{
-    while (isorded(data->a, 0))
-    {
-    	ft_putstr("The list is sorted already!\n");
-        return;
-    }
-	swap(&(data->a), "sa\n");
-}
-
 // Sorts a list with 3 to 5 elements
 void	three_five(t_data *data)
 {
-    int len = list_len(data->a);
-	 if (isorded(data->a, 0))
-    {
+	int	len;
+
+	len = list_len(data->a);
+	if (isorded(data->a, 0))
+	{
 		ft_putstr("The list is sorted already!\n");
-        return;
-    }
+		return ;
+	}
 	if (len == 3)
 		sort_three(data);
 	else if (len == 4)
 		sort_four(data);
 	else if (len == 5)
 		sort_five(data);
-        return;
+	return ;
 }
 
-// Main push_swap function that sorts the given list using the push_swap algorithm
-void push_swap(t_data *data)
+// Main push_swap function that sorts the given 
+//list using the push_swap algorithm
+void	push_swap(t_data *data)
 {
-    int len = list_len(data->a);
+	int	len;
 
-    if (len == 2)
-    {
-        sort_two(data);
-        return;
-    }
-    else if (len <= 5)
-    {
-        three_five(data);
-        return;
-    }
-    else
-        radix_sort(data);
-
+	len = list_len(data->a);
+	if (len == 2)
+	{
+		sort_two(data);
+		return ;
+	}
+	else if (len <= 5)
+	{
+		three_five(data);
+		return ;
+	}
+	else
+		radix_sort(data);
 }

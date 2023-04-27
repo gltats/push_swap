@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+         #
+#    By: tgomes-l <tgomes-l@student.42wolfsburg>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#              #
-#    Updated: 2023/04/17 18:31:35 by tatianasofi      ###   ########.fr        #
+#    Updated: 2023/04/27 12:26:48 by tgomes-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,8 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 #--------------------------------
 
 
-SRC = 	Main.c	Movements.c	Parseo.c Push_swap.c\
-		Utils.c big_sort.c three_five_sort.c
+SRC = 	main.c	movements.c	parsing.c push_swap.c\
+		utils.c two_and_big_sort.c three_five_sort.c
 OBJS = $(SRC:.c=.o)
 LIB = ./libft/libft.a
 HEADERS = Push_swap.h

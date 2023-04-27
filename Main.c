@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/18 11:42:46 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/04/27 12:05:52 by tatianasofi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	numeration(t_list *list, t_list *list2)
 	return (0);
 }
 
-// Renumber the elements of the given list based on their positions in the sorted list
+// Renumber the elements of the given list based 
+//on their positions in the sorted list
 t_list	*renumb(t_list *list, t_list *list2)
 {
 	t_list	*a;
@@ -66,7 +67,8 @@ void	clean(t_data *data, char **aux, char *str, t_list *temp)
 	free(data);
 }
 
-// Main function that initializes the data structures and calls the push_swap function
+// Main function that initializes the data structures
+// and calls the push_swap function
 int	main(int argc, char **argv)
 {
 	char	*str;
@@ -88,5 +90,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_putstr("Invalid number of arguments");
-	return(0);
+	return (0);
 }

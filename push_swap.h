@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tgomes-l <tgomes-l@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: tgomes-l <tgomes-l@student.42wolfsburg>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/26 19:20:45 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:06:46 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ void		reverse_rotate(t_list **list, char *str);
 void		swap(t_list **list, char *str);
 void		push(t_list **src, t_list **dst, char *str);
 
-int	list_len(t_list *list);
-int	isorded(t_list *list, int i);
+int			list_len(t_list *list);
+int			isorded(t_list *list, int i);
 
-void  sort_three(t_data *data);
-void sort_four(t_data *data);
-void sort_five(t_data *data);
-
-void radix_sort(t_data *data);
+void		sort_three(t_data *data);
+void		sort_four(t_data *data);
+void		sort_five(t_data *data);
+void		sort_two(t_data *data);
+void		radix_sort(t_data *data);
 
 t_list		*new_node(int numb);
 

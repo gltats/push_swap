@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Parseo.c                                           :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tatianasofiagomeslima <tatianasofiagome    +#+  +:+       +#+        */
+/*   By: tgomes-l <tgomes-l@student.42wolfsburg>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:34:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/04/19 18:31:52 by tatianasofi      ###   ########.fr       */
+/*   Updated: 2023/04/27 12:16:51 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int	isdup(char **a)
 	return (0);
 }
 
-// Checks if the input string contains any invalid characters, numbers out of range or duplicates
+// Checks if the input string contains any invalid characters,
+// numbers out of range or duplicates
 void	parseo(char *str, char **a)
 {	
 	if (char_in_str(str))
